@@ -10,4 +10,10 @@ class Harimau
 		$this->attackPower = 7;
 		$this->defencePower = 8;
 	}
+
+	public function getInfoHewan()
+	{
+		echo var_dump($this) . '\n';
+		echo 'Hewan ini berjenis ' . $this->class . '.';
+	}
 }
