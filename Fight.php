@@ -1,4 +1,5 @@
 <?php
+require_once 'Hewan.php';
 
 trait Fight
 {

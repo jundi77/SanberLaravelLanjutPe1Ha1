@@ -1,4 +1,5 @@
 <?php
+require_once 'Fight.php';
 
 class Harimau
 {
