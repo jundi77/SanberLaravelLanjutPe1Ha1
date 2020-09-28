@@ -1,6 +1,6 @@
 <?php
 
-abstract class Fight
+trait Fight
 {
-
+	public $attackPower, $defencePower;
 }

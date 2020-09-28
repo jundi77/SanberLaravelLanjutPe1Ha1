@@ -1,6 +1,6 @@
 <?php
 
-abstract class Hewan
+trait Hewan
 {
-
+	public $nama, $darah = 50, $jumlahKaki, $keahlian;
 }
