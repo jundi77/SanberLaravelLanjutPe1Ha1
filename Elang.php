@@ -1,7 +1,7 @@
 <?php
 require_once 'Fight.php';
 
-class Elang extends Harimau
+class Elang
 {
 	use Fight;
 	private function __construct()
