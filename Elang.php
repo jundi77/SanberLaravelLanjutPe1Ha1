@@ -4,7 +4,7 @@ require_once 'Fight.php';
 class Elang
 {
 	use Fight;
-	private function __construct()
+	public function __construct()
 	{
 		$this->jumlahKaki = 2;
 		$this->keahlian = "terbang tinggi";
@@ -14,7 +14,7 @@ class Elang
 
 	public function getInfoHewan()
 	{
-		echo var_dump($this) . '\n';
-		echo 'Hewan ini berjenis ' . $this->class . '.';
+		echo var_dump($this) . "\n<br/>";
+		echo 'Hewan ini berjenis ' . self::class . '.';
 	}
 }
