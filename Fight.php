@@ -13,7 +13,7 @@ trait Fight
 				echo $this->nama . " sedang menyerang " . $target->nama . "\n<br/>";
 				$target->diserang($this, 'not self');
 			}
-			else throw new Exception("Bukan obyek yang menggunakan trait Fight.", 1);
+			else throw new Exception("Obyek target tidak punya properti nama.", 1);
 			
 		}
 		catch(Throwable $e) {
