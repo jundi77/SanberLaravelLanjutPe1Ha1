@@ -9,25 +9,37 @@ trait Fight
 	public function serang($target)
 	{
 		try {
-			echo $this->nama . " sedang menyerang " . $target->nama;
-			$target->diserang($this);
+			if (isset($target->nama)) {
+				echo $this->nama . " sedang menyerang " . $target->nama . "\n<br/>";
+				$target->diserang($this, 'not self');
+			}
+			else throw new Exception("Bukan obyek yang menggunakan trait Fight.", 1);
+			
 		}
-		catch(Exception $e) {
-			echo "Obyek yang digunakan harus obyek yang menggunakan trait Fight.\n";
+		catch(Throwable $e) {
+			echo "Obyek target disarankan adalah obyek yang menggunakan trait Fight.\n";
 			return $e;
 		}
 		return $this;
 	}
 
-	private function diserang($penyerang)
+	public function diserang($penyerang, $callFunc = 'self')
 	{
 		try {
-			echo $this->nama . " sedang diserang ";
-			$this->darah = $this->darah - ($penyerang / $this->defencePower);
+			if($callFunc == 'self') {
+				$penyerang->serang($this);
+			}
+			else {
+				echo $this->nama . " sedang diserang ";
+				if($this->darah > 0)
+					$this->darah = $this->darah - ($penyerang->attackPower / $this->defencePower);
+			}
 		}
-		catch(Exception $e) {
-			echo "Obyek yang digunakan harus obyek yang menggunakan trait Fight.\n";
+		catch(Throwable $e) {
+			echo "Obyek target disarankan adalah obyek yang menggunakan trait Fight.\n<br/>";
 			return $e;
 		}
+
+		return $this;
 	}
 }
